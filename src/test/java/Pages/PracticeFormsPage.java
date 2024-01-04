@@ -145,9 +145,11 @@ public void fillstate(String statevelue){
 }
 
 public void fillcity(String cityvalue){
-        city.click();
-        selectcity.sendKeys(cityvalue);
-        selectcity.sendKeys(Keys.ENTER);
+        elementMethods.clickElement(city);
+        elementMethods.fillElement(selectcity,cityvalue, Keys.ENTER);
+//        city.click();
+//        selectcity.sendKeys(cityvalue);
+//        selectcity.sendKeys(Keys.ENTER);
 }
 public void fillsubmit(){
         elementMethods.clickJSelement(submittbutton);

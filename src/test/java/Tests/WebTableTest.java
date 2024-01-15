@@ -1,8 +1,11 @@
 package Tests;
 
+import ObjectData.WebTableObject;
 import Pages.ElementsPage;
 import Pages.HomePage;
 import Pages.WebTablePage;
+
+import ShareData.Hooks;
 import ShareData.ShareData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,7 +18,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class WebTableTest extends ShareData {
+public class WebTableTest extends Hooks {
 
 
     @Test
@@ -32,6 +35,7 @@ public class WebTableTest extends ShareData {
 //
 //        WebElement webTables=getDriver().findElement(By.xpath("//span[text()='Web Tables']"));
 //        webTables.click();
+        WebTableObject webTableObject=new WebTableObject(testData);
 
         HomePage homePage=new HomePage(getDriver());
         homePage.clickElements();
@@ -40,15 +44,9 @@ public class WebTableTest extends ShareData {
         ElementsPage elementsPage= new ElementsPage(getDriver());
         elementsPage.clickwebtables();
 
-        String firstNameValue="Turcanu";
-        String lastNameValue="Oana";
-        String emailValue="oana@yahoo.com";
-        String ageValue="30";
-        String salaryValue="10000";
-        String departamentValue="IT";
 
         WebTablePage webTablePage=new WebTablePage(getDriver());
-        webTablePage.addnewentry(firstNameValue,lastNameValue,emailValue,ageValue,salaryValue,departamentValue);
+        webTablePage.addnewentry(webTableObject);
 
 //        List<WebElement> actualsEntries=getDriver().findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
 //        Integer actualTableSize=actualsEntries.size();

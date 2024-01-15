@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.FormTableObject;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -69,17 +70,18 @@ public class PracticeFormsPage extends BasePage{
 
 
 
-    public void fillPracticeForm(String firstname,String lastname,String email, String mobile, String subjects, String address, String state, String city){
-        fillfirstName(firstname);
-        fillLastName(lastname);
-        fillemail(email);
+    public void fillPracticeForm(FormTableObject formTableObject){
+        fillfirstName(formTableObject.getFirstNameValue());
+        fillLastName(formTableObject.getLastNameValue());
+        fillemail(formTableObject.getAddressValue());
         fillgender();
-        fillmobile(mobile);
-        fillsubjects(subjects);
+        fillmobile(formTableObject.getMobileValue());
+        fillsubjects(formTableObject.getSubjectsValue());
+        elementMethods.scrollBypixels(0,400);
         fillreading();
-        filladdress(address);
-        fillstate(state);
-        fillcity(city);
+        filladdress(formTableObject.getAddressValue());
+        fillstate(formTableObject.getStateValue());
+        fillcity(formTableObject.getCityValue());
 
 
 
@@ -134,7 +136,7 @@ public void filladdress(String addresvalue){
 
 public void fillstate(String statevelue){
     elementMethods.scrollBypixels(0,450);
-    elementMethods.clickElement(state);
+    elementMethods.clickJSelement(state);
     elementMethods.fillElement(selectstate,statevelue,Keys.ENTER);
 
 //    JavascriptExecutor js = null;
@@ -145,7 +147,7 @@ public void fillstate(String statevelue){
 }
 
 public void fillcity(String cityvalue){
-        elementMethods.clickElement(city);
+        elementMethods.clickJSelement(city);
         elementMethods.fillElement(selectcity,cityvalue, Keys.ENTER);
 //        city.click();
 //        selectcity.sendKeys(cityvalue);

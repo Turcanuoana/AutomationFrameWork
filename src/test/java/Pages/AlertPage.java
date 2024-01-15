@@ -1,5 +1,6 @@
 package Pages;
 
+import ObjectData.AlertObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,14 +31,14 @@ public class AlertPage extends BasePage{
 
 
     public void interractAlertOK() {
-        button1.click();
+        elementMethods.clickElement(button1);
         alertMethods.acceptalert();
 //        Alert alertOK = driver.switchTo().alert();
 //        alertOK.accept();
 
     }
 public void interractAlertDelay(){
-        alertDelayButton.click();
+    elementMethods.clickElement(alertDelayButton);
         alertMethods.acceptalert();
 
 //    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -47,15 +48,15 @@ public void interractAlertDelay(){
 //    alertdelay.accept();
 }
  public void interractAlertDismiss(){
-     alertOkCancelButton.click();
+     elementMethods.clickElement(alertOkCancelButton);
      alertMethods.cancalalert();
 
 //     Alert alertOkCancel=driver.switchTo().alert();
 //     alertOkCancel.dismiss();
  }
- public void interractAlertValue(String value){
-     alertValueButton.click();
-     alertMethods.fillalert(value);
+ public void interractAlertValue(AlertObject alertObject){
+     elementMethods.clickElement(alertValueButton);
+     alertMethods.fillalert(alertObject.getPromptAlert());
 
 //     Alert alertValue=driver.switchTo().alert();
 //     alertValue.sendKeys(value);

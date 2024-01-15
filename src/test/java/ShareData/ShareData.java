@@ -13,8 +13,6 @@ public class ShareData {
 
     private WebDriver driver;
 
-@BeforeMethod
-
     public void setup(){
         driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
@@ -25,7 +23,6 @@ public class ShareData {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,450)", "");
     }
-    @AfterMethod
 
     public void clear(){
 
